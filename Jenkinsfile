@@ -11,7 +11,7 @@ agent any
 	stages {
 		stage("Checkout"){
 			//cleanWs()
-			println 'Stage checkout'
+			//println 'Stage checkout'
 			git url: "git@github.com:satishcheppalli/HelloWorldK8S.git", branch: "main", credentialsId: 'github_ssh'
 		}
 		stage("Build") {
