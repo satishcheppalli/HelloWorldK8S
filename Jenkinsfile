@@ -10,12 +10,16 @@ agent any
 	}
 	stages {
 		stage("Checkout"){
-			//cleanWs()
-			//println 'Stage checkout'
-			git url: "git@github.com:satishcheppalli/HelloWorldK8S.git", branch: "main", credentialsId: 'github_ssh'
+			steps {
+				//cleanWs()
+				//println 'Stage checkout'
+				git url: "git@github.com:satishcheppalli/HelloWorldK8S.git", branch: "main", credentialsId: 'github_ssh'
+				}
 		}
 		stage("Build") {
-			bat "mvn clean package -DskipTests"
+			steps {
+				bat "mvn clean package -DskipTests"
+				}
 		}
 	}	
 
