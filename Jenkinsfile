@@ -17,6 +17,7 @@ agent any
 		stage("Build") {
 			steps {
 				bat "mvn clean package -DskipTests"
+				bat "docker build -t "helloworld:latest" ."
 				}
 		}
 		stage("k8s") {
