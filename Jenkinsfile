@@ -11,14 +11,17 @@ agent any
 	stages {
 		stage("Checkout"){
 			steps {
-				//cleanWs()
-				//println 'Stage checkout'
 				git url: "git@github.com:satishcheppalli/HelloWorldK8S.git", branch: "main", credentialsId: 'github_ssh'
 				}
 		}
 		stage("Build") {
 			steps {
 				bat "mvn clean package -DskipTests"
+				}
+		}
+		stage("k8s") {
+			steps {
+				bat "kubectl config get-contexts"
 				}
 		}
 	}	
