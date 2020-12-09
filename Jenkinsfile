@@ -22,7 +22,7 @@ agent any
 		}
 		stage("k8s") {
 			steps {
-				bat "kubectl create namespace satish-ns"
+				bat "kubectl get ns"
 				echo "Hi"
 				}
 		}
