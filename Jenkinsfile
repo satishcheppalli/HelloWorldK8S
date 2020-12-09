@@ -9,7 +9,7 @@ agent any
 		APP_NAME="HelloWorldK8S"
 	}
 	stages {
-		stage("Checkout"){
+/*		stage("Checkout"){
 			steps {
 				git url: "git@github.com:satishcheppalli/HelloWorldK8S.git", branch: "main", credentialsId: 'github_ssh'
 				}
@@ -20,6 +20,7 @@ agent any
 				bat "docker build -t helloworld:latest ."
 				}
 		}
+*/		
 		stage("k8s") {
 			steps {
 				bat "kubectl get ns"
