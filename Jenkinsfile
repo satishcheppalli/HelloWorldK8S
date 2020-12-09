@@ -23,7 +23,7 @@ agent any
 */		
 		stage("k8s") {
 			steps {
-				bat "kubectl config get-contexts"
+				bat "kubectl get ns satish-ns || kubectl create ns satish-ns"
 				echo "Hi"
 				}
 		}
