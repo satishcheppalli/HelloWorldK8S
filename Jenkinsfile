@@ -23,7 +23,8 @@ agent any
 */		
 		stage("k8s") {
 			steps {
-				bat "kubectl get ns satish-ns || kubectl create ns satish-ns"
+				//bat "kubectl config --kubeconfig=C:\Users\2750344\.kube\config"
+				bat "kubectl config --kubeconfig=C:\Users\2750344\.kube\config get ns satish-ns || kubectl create ns satish-ns"
 				echo "Hi"
 				}
 		}
