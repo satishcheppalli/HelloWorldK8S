@@ -24,7 +24,7 @@ agent any
 		stage("k8s") {
 			steps {
 				//bat "kubectl config --kubeconfig=C:\Users\2750344\.kube\config"
-				bat "kubectl config --kubeconfig=C:/Users/2750344/.kube/config get ns"
+				bat "kubectl config view"
 				echo "Hi"
 				}
 		}
