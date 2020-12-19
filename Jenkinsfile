@@ -24,9 +24,7 @@ agent any
 		stage("k8s") {
 			steps {
 				//bat "kubectl config --kubeconfig=C:\Users\2750344\.kube\config"
-				bat "kubectl config view"
-				bat "kubectl config get-contexts"
-				bat "kubectl get --namespaces"
+				bat "kubectl get pods"
 				echo "Hi"
 				}
 		}
