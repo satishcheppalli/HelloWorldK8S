@@ -23,9 +23,10 @@ agent any
 */		
 		stage("k8s") {
 			steps {
-				//bat "kubectl config --kubeconfig=C:\Users\2750344\.kube\config"
-				bat "kubectl get pods"
-				echo "Hi"
+				echo "*****before*******"
+				bat "kubectl --namespace=satish-ns apply -f k8s/deployment.yml")
+			    bat "kubectl --namespace=satish-ns apply -f k8s/service.yml")
+				echo "*****after*******"
 				}
 		}
 	}	

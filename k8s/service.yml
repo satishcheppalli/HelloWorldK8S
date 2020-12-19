@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: helloworld
 spec:
-  type: LoadBalancer
   ports:
   - port: 80
     targetPort: 8484
