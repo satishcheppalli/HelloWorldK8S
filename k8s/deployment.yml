@@ -1,0 +1,46 @@
+apiVersion: extensions/v1beta1
+#apiVersion: apps/v1beta2
+#apiVersion: v1
+kind: Deployment
+metadata:
+  name: helloworld
+  labels:
+    app: helloworld
+spec:
+  replicas: 1
+  revisionHistoryLimit: 0
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+     maxSurge: 0
+     maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: helloworld
+  template:
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+      - name: helloworld
+        image: helloworld:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8484
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: helloworldautoscaler
+spec:
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: helloworld
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 40   
+status:
+  currentReplicas: 1
+  desiredReplicas: 1
