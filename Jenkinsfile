@@ -24,8 +24,8 @@ agent any
 		stage("k8s") {
 			steps {
 				echo "*****before*******"
-				bat "kubectl --namespace=satish-ns apply -f k8s/deployment.yml")
-			    bat "kubectl --namespace=satish-ns apply -f k8s/service.yml")
+				bat "kubectl --namespace=satish-ns apply -f k8s/deployment.yml"
+			        bat "kubectl --namespace=satish-ns apply -f k8s/service.yml"
 				echo "*****after*******"
 				}
 		}
